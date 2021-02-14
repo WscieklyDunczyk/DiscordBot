@@ -8,7 +8,7 @@ module.exports = async function(msg, args){
 		}
         else {
 		msg.reply(`
-		Country: ${data.country}
+		Kraj: ${data.country}
 		Liczba śmierci: ${data.deaths}
 		Przypadki dzisiaj: ${data.todayCases}
         Zgony dzisiaj: ${data.todayDeaths}
