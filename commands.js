@@ -1,4 +1,4 @@
-//import node-fetch async function
+//import komend
 const tomek = require("./commands/tomek");
 const gif = require("./commands/gif");
 const covid = require("./commands/covid");

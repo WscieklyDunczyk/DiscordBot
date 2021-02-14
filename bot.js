@@ -1,8 +1,8 @@
 console.log('beep beep');
-//import discord.js
-const Discord = require('discord.js');
 //.env
 require('dotenv').config();
+//import discord.js
+const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
@@ -10,7 +10,6 @@ const client = new Discord.Client();
 const commandHandler = require("./commands");
 
 client.login(process.env.DISCORD_TOKEN);
-//client.login(process.env.DISCORD_BOT_TOKEN);
 client.on('ready', readyDiscord);
 
 function readyDiscord(){
