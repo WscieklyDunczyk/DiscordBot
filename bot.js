@@ -20,8 +20,8 @@
     
     client.on('ready', () => {
         console.log('boop');
-
-        client.emit("guildMemberAdd", client.guilds.cache.get("688781292854050855").members.cache.get("681404694224306218"));
+        //test
+        //client.emit("guildMemberAdd", client.guilds.cache.get("688781292854050855").members.cache.get("681404694224306218"));
     });
     // error handler
     client.on('debug', () => {})

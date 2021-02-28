@@ -1,7 +1,6 @@
-const { MessageEmbed, Collection, Client, MessageAttachment } = require("discord.js");
-const fetch = require("node-fetch");
-const logChannelId = "732593980373467146";
-const messageChannelID = "743542083691741245";
+const { MessageEmbed } = require("discord.js");
+const userChannelId = "711331442134745178";
+const adminChannelId = "798267860178567169";
 
 module.exports = {
     name: "guildMemberAdd",
@@ -9,20 +8,24 @@ module.exports = {
 
     // member.guild.channels.cache zwraca liste kanałów w postaci kolekcji
     run(member) {
-        // error => member jest undefined
-        const logChannel = member.guild.channels.cache.get(logChannelId)
-        const messageChannel = member.guild.channels.cache.get(messageChannelID)
-
         
-        // wysyłanie wiadomosci dla wszystkich
-        messageChannel.send(`<@${member.user.id}>, witaj na serwerze 🚗`)
+        const userChannel = member.guild.channels.cache.get(userChannelId)
+        const adminChannel = member.guild.channels.cache.get(adminChannelId)
 
-        // wysyłanie wiadomości dla adminow
-        const embed = new MessageEmbed()
-        embed.setTitle("Nowy użytkownik")
-        embed.setColor(0x00ff04)
-        embed.setDescription(`<@${member.user.id}> dołączył(-a) do serwera.`)
+        // wiadomosc embed
+        const embeduser = new MessageEmbed()
+        embeduser.setTitle("Nowy użytkownik")
+        embeduser.setColor(0x00ff04)
+        embeduser.setDescription(`<@${member.user.id}>, witaj na serwerze 🚗`)
+        // wyslanie wiadomosci dla uzytkownikow
+        userChannel.send(embeduser)
 
-        messageChannel.send(embed);
+        // wiadomosc embed
+        const embedadmin = new MessageEmbed()
+        embedadmin.setTitle("Nowy użytkownik")
+        embedadmin.setColor(0x00ff04)
+        embedadmin.setDescription(`<@${member.user.id}> dołączył(-a) do serwera.`)
+        // wyslanie wiadomosci dla adminow
+        adminChannel.send(embedadmin);
     }
 }
