@@ -8,7 +8,7 @@ module.exports = {
 
     // member.guild.channels.cache zwraca liste kanałów w postaci kolekcji
     run(member) {
-        
+
         const userChannel = member.guild.channels.cache.get(userChannelId)
         const adminChannel = member.guild.channels.cache.get(adminChannelId)
 

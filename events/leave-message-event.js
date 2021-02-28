@@ -1,21 +1,20 @@
-const { MessageEmbed, Collection } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 
-const logChannelId = "743542083691741245"
+const adminChannelId = "798267860178567169"
 
 module.exports = {
     name: "guildMemberRemove",
 
     // member.guild.channels.cache zwraca liste kanałów w postaci kolekcji
     run(member) {
-        // error => member jest undefined
-        const logChannel = member.guild.channels.cache.get(logChannelId)
+        const adminChannel = member.guild.channels.cache.get(adminChannelId)
 
-        // wysyłanie wiadomości dla adminow
+         // wiadomosc embed
         const embed = new MessageEmbed()
         .setTitle("Nowy użytkownik")
         .setColor(0xff0000)
         .setDescription(`<@${member.user.id}> opuścił(-a) serwer.`)
-
-        logChannel.send(embed);
+        // wyslanie wiadomosci
+        adminChannel.send(embed);
     }
 }
