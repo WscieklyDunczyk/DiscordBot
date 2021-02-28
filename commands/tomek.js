@@ -4,7 +4,12 @@ const replies = [
     'rozergrałem 62 spotkania w reprezentacji Polski',
     'Sąd prawomocnie skazał mnie na 43 tysiące euro grzywny za nielegalny handel papierosami. No i co z tego?'
 ];
-module.exports = function (msg, args){
-    const index = Math.floor(Math.random() * replies.length);
-    msg.channel.send(replies[index]);
-};
+module.exports = {
+    name: "tomek",
+    description: "Wyświetla kultowe teksty Tomasza Hajto",
+    
+    run(msg){
+        const index = Math.floor(Math.random() * replies.length)
+        msg.channel.send(replies[index])
+    },
+}
